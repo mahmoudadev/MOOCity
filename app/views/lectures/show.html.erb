@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @lecture.content %>
+</p>
+
+
+<video width="820" height="540" controls>
+  <source src="<%= @lecture.attachment %>" type="video/mp4">
+  <source src="<%= @lecture.attachment %>" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+
+
+<%= link_to 'Edit', edit_lecture_path(@lecture) %> |
+<%= link_to 'Back', lectures_path %>
