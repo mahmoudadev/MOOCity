@@ -11,14 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :content %>
     <%= form.text_area :content, id: :lecture_content %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :attachment %>
     <%= form.file_field :attachment, id: :lecture_attachment %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :Course %>
+    <%= form.select :course_id, Course.all.collect{|c| [c.title, c.id]},{include_blank: "Select Course"} %>
   </div>
 
   <div class="actions">
