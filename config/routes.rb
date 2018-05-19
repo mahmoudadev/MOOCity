@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   resources :courses do
-    resources :lectures , :exec =>[:new, :create , :index] do
+    resources :lectures , :exec =>[:new, :create , :index, :show ,:update , :edit]  do
       put 'like' => "lectures#upvote"
       put 'unlike' => "lectures#downvote"
     end
   end
-  resources :lectures , :only => [:new , :create, :index ]
+  resources :lectures , :only => [:new , :show, :create, :index ,:update,  ]
   root to: "courses#index"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

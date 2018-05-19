@@ -25,6 +25,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'commontator', '~> 5.1.0'
 gem 'acts_as_votable'
+gem 'ckeditor_rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
