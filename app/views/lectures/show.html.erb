@@ -1,10 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @lecture.content %>
-</p>
-
 
 <video width="820" height="540" controls>
   <source src="<%= @lecture.attachment %>" type="video/mp4">
@@ -12,8 +7,27 @@
   Your browser does not support the video tag.
 </video>
 
+<p class="mr-5">
+  <strong class="text-center">Overview:</strong>
+  <%= @lecture.content %>
+</p>
+
+<%= link_to course_lecture_like_path(@lecture, @lecture.id), method: :put do %>
+  <button class="btn btn-outline-primary">Like <i class="badage">
+  <%= @lecture.get_likes.size %>
+  </i></button>
+  <% end %>
+<%= link_to course_lecture_unlike_path(@lecture, @lecture), method: :put do %>
+  <button class="btn btn-outline-danger">Dislike <i class="badage">
+    <%= @lecture.get_dislikes.size %>
+  </i></button>
+<% end %>
 
 <%= link_to 'Edit', edit_course_lecture_path(@lecture) %> |
 <%= link_to 'Back', course_lecture_path %>
 
-<%= commontator_thread(@lecture) %>
+
+<div class="col mt-5">
+<h4> Leave a comment</h4>
+  <%= commontator_thread(@lecture) %>
+</div>
