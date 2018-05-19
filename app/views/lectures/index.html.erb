@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Content</th>
-      <th>Attachment</th>
+      <th>Course Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +15,10 @@
     <% @lectures.each do |lecture| %>
       <tr>
         <td><%= lecture.content %></td>
-        <td><%= lecture.attachment %></td>
-        <td><%= link_to 'Show', lecture %></td>
-        <td><%= link_to 'Edit', edit_lecture_path(lecture) %></td>
-        <td><%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= lecture.course.title %></td>
+        <td><%= link_to 'Show', course_lecture_url(lecture, lecture.id)  %></td>
+        <td><%= link_to 'Edit', edit_course_lecture_path(lecture, lecture) %></td>
+        <td><%= link_to 'Destroy', course_lecture_url(lecture, lecture  ), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
