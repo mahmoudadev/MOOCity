@@ -14,7 +14,7 @@
   <tbody>
     <% @lectures.each do |lecture| %>
       <tr>
-        <td><%= lecture.content %></td>
+        <td><%= lecture.content.html_safe %></td>
         <td><%= lecture.course.title %></td>
         <td><%= link_to 'Show', course_lecture_url(lecture, lecture.id)  %></td>
         <td><%= link_to 'Edit', edit_course_lecture_path(lecture, lecture) %></td>

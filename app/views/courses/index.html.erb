@@ -10,7 +10,7 @@
         <h6 class="card-subtitle mb-2 text-muted">course subtitle</h6>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
           content.</p>
-        <a href="#" class="card-link"><%= link_to 'Show ', course %></a>
+        <a href="#" class="card-link btn-outline-primary"><%= link_to 'Show ', course %></a>
         <a href="#" class="card-link"><%= link_to 'Edit', edit_course_path(course) %></a>
         <a href="#" class="card-link"><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></a>
       </div>
@@ -23,4 +23,4 @@
 
 </div>
 
-<%= link_to 'New Course', new_course_path %>
+<%= link_to 'New Course', new_course_path, :class => "btn btn-primary" %>

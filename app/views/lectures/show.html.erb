@@ -1,16 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 
-<video width="820" height="540" controls>
-  <source src="<%= @lecture.attachment %>" type="video/mp4">
-  <source src="<%= @lecture.attachment %>" type="video/ogg">
-  Your browser does not support the video tag.
-</video>
 
-<p class="mr-5">
+<iframe width="560" height="315" src="<%= @lecture.attachment %>" frameborder="0" allowfullscreen></iframe>
+
+<div class="mr-5">
   <strong class="text-center">Overview:</strong>
-  <%= @lecture.content %>
-</p>
+  <%= @lecture.content.html_safe %>
+</div>
 
 <%= link_to course_lecture_like_path(@lecture, @lecture.id), method: :put do %>
   <button class="btn btn-outline-primary">Like <i class="badage">
@@ -18,8 +15,8 @@
   </i></button>
   <% end %>
 <%= link_to course_lecture_unlike_path(@lecture, @lecture), method: :put do %>
-  <button class="btn btn-outline-danger">Dislike <i class="badage">
-    <%= @lecture.get_dislikes.size %>
+  <button class="btn btn-outline-danger"><i class="fa fa-badage">
+    <%= @lecture.get_dislikes.size > 0 ? "reported" : 'Report this' %>
   </i></button>
 <% end %>
 

@@ -5,14 +5,19 @@
   <div class="row">
     <div class="col-5">
       <h2>  <%= @course.title %></h2>
+
+      <%= link_to "Add Lecture", new_lecture_path, :class => 'btn btn-secondary' %>
+      <%= link_to 'Edit', edit_course_path(@course) , :class => 'btn btn-outline-secondary' %>
+      <%= link_to 'Back', courses_path , :class => 'btn btn-outline-secondary'%>
+
     </div>
     <div class="col-7">
-      <h3>Lectures:</h3>
+      <h3>Lectures</h3>
       <% @lectures.each do |lecture| %>
 
 
-        <p class="card">
-            <%= link_to lecture.content, course_lecture_path(lecture)  %>
+        <p class="field">
+            <%= link_to lecture.content.html_safe , course_lecture_path(lecture.course_id, lecture), :class => 'card-title'  %>
         </p>
 
       <% end %>
@@ -23,7 +28,3 @@
 
 
 
-
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
