@@ -14,7 +14,7 @@
   <%= @lecture.get_likes.size %>
   </i></button>
   <% end %>
-<%= link_to course_lecture_unlike_path(@lecture, @lecture), method: :put do %>
+<%= link_to course_lecture_spam_path(@lecture, @lecture), method: :put do %>
   <button class="btn btn-outline-danger"><i class="fa fa-badage">
     <%= @lecture.get_dislikes.size > 0 ? "reported" : 'Report this' %>
   </i></button>

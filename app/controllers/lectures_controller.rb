@@ -12,7 +12,7 @@ def upvote
   redirect_to course_lecture_path(@lecture, @lecture)
 end
 
-def downvote
+def spam
   @lecture = Lecture.find(params[:lecture_id])
   @lecture.disliked_by current_user
   redirect_to course_lecture_path(@lecture, @lecture)

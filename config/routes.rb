@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :courses do
     resources :lectures , :exec =>[:new, :create , :index, :show ,:update , :edit]  do
       put 'like' => "lectures#upvote"
-      put 'unlike' => "lectures#downvote"
+      put 'spam' => "lectures#spam"
     end
   end
   resources :lectures , :only => [:new , :show, :create, :index ,:update,  ]
